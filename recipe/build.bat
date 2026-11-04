@@ -20,11 +20,12 @@ cmake -G "Ninja" ^
   -DWITH_PCAP=OFF ^
   -DWITH_PNG=OFF ^
   -DWITH_QHULL=ON ^
-  -DWITH_QT=QT6 ^
-  -DWITH_VTK=ON ^
+  -DWITH_QT=OFF ^
+  -DWITH_VTK=OFF ^
   -DBUILD_global_tests=OFF ^
   -DBUILD_examples=OFF ^
-  -DBUILD_tools=ON ^
+  -DBUILD_tools=OFF ^
+  -DBUILD_visualization=OFF ^
   -DBUILD_apps=OFF ^
   -DBoost_NO_BOOST_CMAKE:BOOL=ON ^
   -DBoost_USE_DEBUG_RUNTIME:BOOL=OFF ^

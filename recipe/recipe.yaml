@@ -22,7 +22,7 @@ source:
     - boost-system-header-only.patch
 
 build:
-  number: 15
+  number: 16
 
 requirements:
   build:
@@ -34,13 +34,7 @@ requirements:
     - if: unix
       then: make
     - pkgconfig
-    - if: build_platform != target_platform
-      then: qt6-main
   host:
-    - if: linux
-      then: xorg-libxfixes
-    - if: linux
-      then: libgl-devel
     - flann
     - nanoflann
     - eigen
@@ -49,24 +43,22 @@ requirements:
     - if: win
       then: tbb-devel
     - qhull
-    - vtk
     - libpng
-    - glew
-    - if: not ppc64le
-      then: qt6-main
   run:
     # These dependencies are required for find_package(PCL) to work, they can be moved to a pcl-devel package if that is created
     - flann
     - nanoflann
     - qhull
-    - glew
     - eigen
     - libboost-devel
-    - vtk
   run_exports:
     - ${{ pin_subpackage('pcl', upper_bound='x.x.x') }}
 
 tests:
+  - package_contents:
+      lib:
+        - pcl_io
+        - pcl_common
   - requirements:
       run:
         - cmake-package-check
